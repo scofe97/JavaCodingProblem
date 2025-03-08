@@ -1,7 +1,10 @@
 package org.example.Chapter1;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Problem1_3 {
     private static final String TEXT = "My high school, the Illinois Mathematics and Science Academy, "
@@ -9,6 +12,8 @@ public class Problem1_3 {
             + "At 15, I worked as a computer programmer at the Fermi National Accelerator Laboratory, "
             + "or Fermilab. After graduating, I attended Stanford for a degree in economics and "
             + "computer science.";
+
+    private static final Pattern PATTERN = Pattern.compile(" +");
 
     public static void main(String[] args) {
 
@@ -25,5 +30,11 @@ public class Problem1_3 {
         }
 
         System.out.println(sb);
+
+
+        String reverse = PATTERN.splitAsStream(TEXT)
+                .map(w -> new StringBuilder(w).reverse())
+                .collect(Collectors.joining(" "));
+        System.out.println("reverse = " + reverse);
     }
 }

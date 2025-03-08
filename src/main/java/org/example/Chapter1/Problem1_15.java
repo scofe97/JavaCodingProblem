@@ -8,6 +8,8 @@ public class Problem1_15 {
             "six", "seven", "eight", "nine", "ten"};
 
     public static void main(String[] args) {
-        Arrays.stream(strs).sorted(String::compareToIgnoreCase).forEach(System.out::println);
+        Arrays.stream(strs)
+                .sorted(String::compareToIgnoreCase)
+                .forEach(System.out::println);
     }
 }
